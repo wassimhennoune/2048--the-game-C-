@@ -1,0 +1,64 @@
+﻿<Controls:MetroWindow x:Class="_2048.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_2048"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="526.41" Width="402.333"  GlowBrush="{DynamicResource AccentColorBrush}"
+
+                      WindowStartupLocation="CenterScreen"
+        KeyDown="action">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisConverter" />
+    </Window.Resources>
+    <Grid Margin="0" >
+        <Grid x:Name="ws" Height="400" Width="400" HorizontalAlignment="Left" Margin="0,100,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,0" d:IsHidden="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="100"/>
+            </Grid.RowDefinitions>
+
+        </Grid>
+        <Button x:Name="button_Copy" Content="New Game" Margin="247,4,18,460" Click="np" FontFamily="Roboto" FontSize="16" Background="White" Foreground="#FF767474"/>
+        <Grid x:Name="ws_Copy" Height="400" Width="400" HorizontalAlignment="Left" Margin="0,100,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,0">
+            <Grid x:Name="ws_Copy1" Height="500" Width="400" HorizontalAlignment="Left" Margin="0,0,0,-100" VerticalAlignment="Top" RenderTransformOrigin="0,0" Background="LightGray" Opacity="0.5"/>
+
+            <Button x:Name="button" Content="Play Again " Margin="138,182,136,167" Click="np" FontFamily="Roboto" FontSize="20" Background="White" Foreground="#FF767474"/>
+        </Grid>
+        <Label x:Name="label" Content="Score :" HorizontalAlignment="Left" Margin="10,16,0,0" VerticalAlignment="Top"
+        	Visibility="{Binding BorderVisible, Converter={StaticResource BoolToVisConverter}}" Width="92" FontFamily="Roboto" FontSize="16" TextOptions.TextFormattingMode="Display" FontWeight="Medium" Foreground="#FF686767"/>
+        <Label x:Name="score_l" Content="" HorizontalAlignment="Left" Margin="140,17,0,0" VerticalAlignment="Top" Width="94" FontFamily="Roboto" FontSize="16" TextOptions.TextFormattingMode="Display" FontWeight="Medium" Foreground="#FF686767"/>
+        <Label x:Name="b_score_l" Content="" HorizontalAlignment="Left" Margin="140,47,0,0" VerticalAlignment="Top" Width="94" FontFamily="Roboto" FontSize="16" TextOptions.TextFormattingMode="Display" FontWeight="Medium" Foreground="#FF686767"/>
+        <Button x:Name="backb" Style="{DynamicResource MetroCircleButtonStyle}" Content="" HorizontalAlignment="Left" Margin="307,45,0,0" VerticalAlignment="Top" Width="50" Click="back" Height="50" Padding="3,1,1,1">
+            <Button.Background>
+                <ImageBrush ImageSource="refresh.png"/>
+            </Button.Background>
+        </Button>
+        <Label x:Name="label_Copy" Content="Best Score :" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top"
+        	Visibility="{Binding BorderVisible, Converter={StaticResource BoolToVisConverter}}" Width="125" FontFamily="Roboto" FontSize="16" TextOptions.TextFormattingMode="Display" FontWeight="Medium" Foreground="#FF686767"/>
+        <Label x:Name="label_Copy1" Content="undo " HorizontalAlignment="Left" Margin="259,44,0,0" VerticalAlignment="Top"
+        	Visibility="{Binding BorderVisible, Converter={StaticResource BoolToVisConverter}}" Width="50" FontFamily="Roboto" FontSize="16" TextOptions.TextFormattingMode="Display" FontWeight="Medium" Foreground="#FF686767" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.509"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label x:Name="nb" Content="undo " HorizontalAlignment="Left" Margin="260,65,0,0" VerticalAlignment="Top"
+        	Visibility="{Binding BorderVisible, Converter={StaticResource BoolToVisConverter}}" Width="42" FontFamily="Roboto" FontSize="16" TextOptions.TextFormattingMode="Display" FontWeight="Medium" Foreground="#FF686767"/>
+
+    </Grid>
+</Controls:MetroWindow>
